@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Autor: {{ author.first_name }} {{author.last_name}}</h1>
+
+  <p>
+    {% if author.date_of_birth is null %} Sin Información 
+    {% else %}{{author.date_of_birth}} - {{author.date_of_death}}
+    {% endif %}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Libros</h4>
+
+    {% for copy in author.book_set.all %}
+    <hr>
+    <p><strong>{{copy.title}}</strong></p>
+    <p><strong>Géneros:</strong> {{copy.display_genre}}
+    <p>Idioma: {{copy.language}}</p>
+    <p>Resumen: {{copy.summary}}</p>
+    <p>ISBN: {{copy.isbn}}</p>
+    
+
+
+    {% endfor %}
+    
+    
+
+  </div>
+{% endblock %}

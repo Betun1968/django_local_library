@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% comment %} Esta parte se añade como ejercicio {% endcomment %}
+
+{% block title %}<title>Index</title>{% endblock %}
+
+{% block content %}
+<h1>Página principal de la Biblioteca Local</h1>
+
+  <p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+
+<h2>Dynamic content</h2>
+
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Libros:</strong> {{ num_books }}</li>
+    <li><strong>Copias:</strong> {{ num_instances }}</li>
+    <li><strong>Copias Disponibles:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+    <li><strong>Generos:</strong> {{num_genres}}</li>
+    <li><strong>Libros con palabra:</strong> {{num_books_word}}</li>    
+  </ul>
+
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+{% endblock %}
